@@ -1,6 +1,6 @@
 import argparse
 import sys
-import pandas
+import pandas as pd
 import datetime
 
 def valid_date(s):
@@ -34,13 +34,13 @@ def parseArgs():
     start_date = args.s
     end_date = args.e
     output_file = args.o
-    df = pandas.read_csv(file)
+    df = pd.read_csv(file)
     return (df, start_date, end_date, output_file)
 
 def filter_boroughs_and_complaint_types(df, start_date, end_date):
     boroughs_and_complaints = df[["Borough", "Complaint Type", "Created Date"]].copy()
     # Update this to convert to datetime
-    boroughs_and_complaints["Created Date"] = pandas.to_datetime(boroughs_and_complaints["Created Date"]).dt.date
+    boroughs_and_complaints["Created Date"] = pd.to_datetime(boroughs_and_complaints["Created Date"]).dt.date
     filtered_data = boroughs_and_complaints[(boroughs_and_complaints["Created Date"] >= start_date) & (boroughs_and_complaints["Created Date"] <= end_date)]
     return filtered_data
 
