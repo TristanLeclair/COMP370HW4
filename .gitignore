@@ -1,3 +1,4 @@
 data/*
+src/**/*.csv
 
 !data/headers.csv
