@@ -1,12 +1,8 @@
-from pathlib import Path
+from bokeh.models import ColumnDataSource, Dropdown
+from bokeh.plotting import curdoc, figure
 import pandas as pd
 
-from bokeh.plotting import curdoc, figure
-from bokeh.models import Dropdown, ColumnDataSource
-
-
-def get_datafile_path(fname):
-    return Path(__file__).parent / fname
+from src.utils.utils import DataHeaders, get_datafile_path
 
 
 def import_data():
