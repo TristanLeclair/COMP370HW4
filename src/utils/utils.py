@@ -4,8 +4,8 @@ from enum import Enum
 from pathlib import Path
 
 
-def get_datafile_path(fname: str) -> Path:
-    return Path(__file__).parent / fname
+def get_datafile_path(relativeDir: str, fname: str) -> Path:
+    return Path(relativeDir).parent / fname
 
 
 def valid_date(s):
@@ -19,6 +19,7 @@ def valid_date(s):
 class DataHeaders(Enum):
     Borough = "Borough"
     ComplaintType = "Complaint Type"
+    IncidentZip = "Incident Zip"
     OpenedDate = "Created Date"
     ClosedDate = "Closed Date"
     Status = "Status"
